@@ -1,15 +1,6 @@
 
 class MainPage {
 
-    // constructor(selector) {
-    //     this.consentButtonSelector = '//*[@id="privacy-policy-banner"]/div/div';;
-    // }
-
-    // async consentDataUsage() {
-    //     await $(this.consentButtonSelector).waitForExist();
-    //     await $(this.consentButtonSelector).click();
-    // }
-
     get consentButton() {
         return $('//div[contains(@class, "policy-accept")]');
     }
