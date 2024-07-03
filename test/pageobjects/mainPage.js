@@ -1,30 +1,18 @@
-const { config } = require('../../wdio.conf');
-
+const consentButtonSelector = await $$('//*[@id="privacy-policy-banner"]/div/div');
 class MainPage {
 
-    constructor() {
-        this.url = config.baseUrl;
-        this.consentButtonSelector = '#privacy-policy-banner .banner-button.policy-accept'; 
-    }
-
-    async open() {
-        try {
-            await browser.url(this.url);
-        } catch (error) {
-            console.error('Error opening the page:', error);
-        }
+    constructor(selector) {
+        this.consentButtonSelector = selector;
     }
 
     async consentDataUsage() {
-        await browser.waitForDisplayed(this.consentButtonSelector, {
-            timeout: 5000,
-            timeoutMsg: 'Consent button was not displayed in time'
-        });
-        const isConsentButtonVisible = await browser.isDisplayed(this.consentButtonSelector);
+        await this.consentButtonSelector.waitForExist({ timeout: 5000 });
+        const isConsentButtonVisible = await this.consentButtonSelector.isDisplayed();
         if (isConsentButtonVisible) {
-            await browser.click(this.consentButtonSelector);
+            await this.consentButtonSelector.click();
         }
     }
 }
- 
- module.exports = new MainPage();
+
+const mainPage = new MainPage(consentButtonSelector);
+export default new MainPage();

@@ -1,8 +1,7 @@
-const MainPage = require('../pageobjects/mainPage');
+import mainPage from '../pageobjects/mainPage.js';
 
 describe('AccuWeather Test Suite', () => {
-    before(async () => {
-        await MainPage.open();
-        await MainPage.consentDataUsage();
+    it('consenting to data usage and allow cookie',async () => {
+        await mainPage.consentDataUsage();
     });
 });
