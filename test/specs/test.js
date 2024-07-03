@@ -6,3 +6,9 @@ describe('AccuWeather Test Suite', () => {
         await mainPage.acceptConsentButton();
     });
 });
+
+describe('accuWeather Search Suite', () => {
+    it('click on the search box and write "New York"', async () => {
+        await mainPage.searchNewYork();
+    })
+})
