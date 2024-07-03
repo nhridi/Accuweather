@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module", 
+  "type": "module",
   "scripts": {
     "wdio": "wdio run .wdio.conf.js",
     "test:alert": " wdio --spec ./test/specs/test.js"
