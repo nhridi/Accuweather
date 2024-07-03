@@ -1,18 +1,23 @@
-const consentButtonSelector = await $$('//*[@id="privacy-policy-banner"]/div/div');
+
 class MainPage {
 
-    constructor(selector) {
-        this.consentButtonSelector = selector;
+    // constructor(selector) {
+    //     this.consentButtonSelector = '//*[@id="privacy-policy-banner"]/div/div';;
+    // }
+
+    // async consentDataUsage() {
+    //     await $(this.consentButtonSelector).waitForExist();
+    //     await $(this.consentButtonSelector).click();
+    // }
+
+    get consentButton() {
+        return $('//div[contains(@class, "policy-accept")]');
     }
 
-    async consentDataUsage() {
-        await this.consentButtonSelector.waitForExist({ timeout: 5000 });
-        const isConsentButtonVisible = await this.consentButtonSelector.isDisplayed();
-        if (isConsentButtonVisible) {
-            await this.consentButtonSelector.click();
-        }
+    async acceptConsentButton() {
+        await this.consentButton.waitForExist();
+        await this.consentButton.click();
     }
 }
 
-const mainPage = new MainPage(consentButtonSelector);
 export default new MainPage();
