@@ -9,6 +9,12 @@ describe('AccuWeather Test Suite', () => {
 
 describe('accuWeather Search Suite', () => {
     it('click on the search box and write "New York"', async () => {
-        await mainPage.searchNewYork();
+        await mainPage.searchCity();
+    })
+})
+
+describe('accuWeather Select Suite', () => {
+    it('select first element of the test result', async () => {
+        await mainPage.clickFirstresult();
     })
 })

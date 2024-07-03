@@ -14,8 +14,12 @@ class MainPage {
         return $('//div[contains(@class, "policy-accept")]');
     }
 
-    get searchResultList() {
+    get searchResultPlaceholder() {
         return $('input[placeholder="Search your Address, City or Zip Code"]');
+    }
+
+    get firstSearchResult() {
+        return $('div.results-container > div.search-bar-result:first-child');
     }
 
     async acceptConsentButton() {
@@ -23,9 +27,14 @@ class MainPage {
         await this.consentButton.click();
     }
 
-    async searchNewYork() {
-        await this.searchResultList.click();
-        await this.searchResultList.setValue('New York');
+    async searchCity() {
+        await this.searchResultPlaceholder.click();
+        await this.searchResultPlaceholder.setValue('New York');
+    }
+
+    async clickFirstresult() {
+        await this.firstSearchResult.waitForExist();
+        await this.firstSearchResult.click();
     }
 }
 
