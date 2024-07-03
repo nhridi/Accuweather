@@ -8,19 +8,12 @@ class MainPage {
     }
 
     async open() {
-        try {
-            await browser.url(this.url);
-        } catch (error) {
-            console.error('Error opening the page:', error);
-        }
+        await browser.url(this.url);
     }
 
     async consentDataUsage() {
-        await browser.waitForDisplayed(this.consentButtonSelector, {
-            timeout: 5000,
-            timeoutMsg: 'Consent button was not displayed in time'
-        });
-        const isConsentButtonVisible = await browser.isDisplayed(this.consentButtonSelector);
+        await browser.waitForExist(this.consentButtonSelector, 5000);
+        const isConsentButtonVisible = await browser.isExisting(this.consentButtonSelector);
         if (isConsentButtonVisible) {
             await browser.click(this.consentButtonSelector);
         }
