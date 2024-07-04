@@ -1,19 +1,20 @@
-import mainPage from '../pageobjects/mainPage.js';
+import iFramePage from '../pageobjects/iFramePage.js';
+import element from '../data/element.js';
 
-describe('AccuWeather Test Suite', () => {
-    it('consenting to data usage and allow cookie',async () => {
-        await mainPage.acceptConsentButton();
+describe('W3Schools Iframe Tests', () => {
+
+    it('should verify the "HTML Tutorial" text inside the iframe', async () => {
+        const text = await iFramePage.getTextHtmlTutorial();
+        expect(text).toContain(element.htmlElement);
+    });
+
+    it('should click the CSS tutorial button and verify the "CSS Tutorial" text', async () => {
+        const text = await iFramePage.clickCssButtonAndCheckText();
+        expect(text).toContain(element.cssElement);
+    });
+
+    it('should verify the "HTML Iframe" text outside the iframe', async () => {
+        const text = await iFramePage.getTextOutsideIframe();
+        expect(text).toContain(element.iFrameElement);
     });
 });
-
-describe('accuWeather Search Suite', () => {
-    it('click on the search box and write "New York"', async () => {
-        await mainPage.searchCity();
-    })
-})
-
-describe('accuWeather Select Suite', () => {
-    it('select first element of the test result', async () => {
-        await mainPage.clickFirstresult();
-    })
-})
