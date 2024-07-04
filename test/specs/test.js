@@ -5,17 +5,11 @@ describe('AccuWeather Test Suite', () => {
         await mainPage.acceptConsentButton();
         await mainPage.searchCity();
         await mainPage.clickFirstresult();
+
+        const searchResultsDisplayed = await $('div.results-container > div.search-bar-result:first-child').waitForExist();
+        expect(searchResultsDisplayed).toBe(true);
+ 
+        const headerText = await $('h1.header-loc').getText();
+        expect(headerText).toContain('New York', 'City name in header does not match');
     });
 });
-
-// describe('accuWeather Search Suite', () => {
-//     it('click on the search box and write "New York"', async () => {
-//         await mainPage.searchCity();
-//     })
-// })
-
-// describe('accuWeather Select Suite', () => {
-//     it('select first element of the test result', async () => {
-//         await mainPage.clickFirstresult();
-//     })
-// })
