@@ -6,7 +6,7 @@ class MainPage {
     }
 
     get searchResultPlaceholder() {
-        return $('input[placeholder="Search your Address, City or Zip Code"]');
+        return $('form.search-form > input.search-input');
     }
 
     get firstSearchResult() {
