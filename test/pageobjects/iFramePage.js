@@ -2,7 +2,7 @@ class IframePage {
 
     get iframe() {
 
-        return $('iframe[title="W3Schools HTML Tutorial"]'); //backup element: iframe[title="W3Schools HTML Tutorial"]
+        return $('iframe[src="https://www.w3schools.com/html/default.asp"]'); //backup element: iframe[title="W3Schools HTML Tutorial"]
     }
 
     get htmlTutorialElement() {
@@ -13,6 +13,11 @@ class IframePage {
     get cssButton() {
 
         return $('div[id="subtopnav"] a[title="CSS Tutorial"]');
+    }
+
+    get cssTutorialElement() {
+
+        return $('#main > h1');
     }
 
     get htmlIframeElement() {
