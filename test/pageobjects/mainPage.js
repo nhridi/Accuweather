@@ -18,9 +18,9 @@ class MainPage {
         await this.consentButton.click();
     }
 
-    async searchCity() {
+    async searchCity(cityName) {
         await this.searchResultPlaceholder.click();
-        await this.searchResultPlaceholder.setValue('New York');
+        await this.searchResultPlaceholder.setValue(cityName);
     }
 
     async clickFirstresult() {
