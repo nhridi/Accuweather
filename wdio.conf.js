@@ -1,3 +1,5 @@
+import {downloadDir} from './test/environment/directories.js';
+
 export const config = {
     //
     // ====================
@@ -51,7 +53,23 @@ export const config = {
     //
     capabilities: [{
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        'goog:chromeOptions': {
+
+            args: [
+                '--incognito', 
+                '--no-sandbox',
+                '--headless', 
+                '--disable-dev-snm-usage'],
+            prefs: {
+                //'download.default_directory': path.join(__dirname, 'downloads'),
+                'download.default_directory': `${downloadDir}/chrome`,
+                'download.prompt_for_download': false,
+                'download.directory_upgrade': true,
+                'safebrowsing_for_trusted_sources_enabled': false,
+                'safebrowsing.enabled': false
+            }
+        }
     }],
 
     //
