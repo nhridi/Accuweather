@@ -1,8 +1,8 @@
 import wikiPage from '../pageobjects/wikiPage.js';
 import element from '../data/element.js';
-// import { ensureDownloadDirectoryExists } from '../utils/fileUtils.js';
-// import {downloadDir} from '../environment/directories.js';
-// import path from 'path';
+import { ensureDownloadDirectoryExists } from '../utils/fileUtils.js';
+import {downloadDir} from '../environment/directories.js';
+import path from 'path';
 
 describe('Wikipedia Albert Einstein Information Download', () => {
     it('should display the main page correctly', async () => {
@@ -13,9 +13,9 @@ describe('Wikipedia Albert Einstein Information Download', () => {
         await wikiPage.navigateToDownloadPDF();
         await wikiPage.downloadPDF();
 
-        // const fullPath = path.join(downloadDir, 'chrome', dynamicFileName.trim());
-        // const isDownloaded = await ensureDownloadDirectoryExists(fullPath, 10000); 
-        // expect(isDownloaded).toBeTruthy();
+        const fullPath = path.join(downloadDir, 'chrome', dynamicFileName.trim());
+        const isDownloaded = await ensureDownloadDirectoryExists(fullPath, 10000); 
+        expect(isDownloaded).toBeTruthy();
 
     });
 });
