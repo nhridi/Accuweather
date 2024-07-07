@@ -58,8 +58,7 @@ export const config = {
 
             args: [
                 '--incognito', 
-                '--no-sandbox',
-                '--headless', 
+                '--no-sandbox', 
                 '--disable-dev-snm-usage'],
             prefs: {
                 //'download.default_directory': path.join(__dirname, 'downloads'),
