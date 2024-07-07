@@ -2,7 +2,7 @@ class IframePage {
 
     get iframe() {
 
-        return $('iframe[src="https://www.w3schools.com/html/default.asp"]'); //backup element: iframe[title="W3Schools HTML Tutorial"]
+        return $('iframe[title="W3Schools HTML Tutorial"]]'); //backup element: iframe[src="https://www.w3schools.com/html/default.asp"]
     }
 
     get htmlTutorialElement() {
@@ -22,7 +22,7 @@ class IframePage {
 
     get htmlIframeElement() {
 
-        return $('//*[@id="main"]/h1');
+        return $('//h1[contains(.,"HTML Iframes")]'); // '//h1[contains(.,"HTML Iframes")]'
     }
 
     async switchToIframe() {
