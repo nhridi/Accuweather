@@ -1,14 +1,17 @@
-import iFramePage from '../pageobjects/iFramePage.js';
+import wikiPage from '../pageobjects/wikiPage.js';
 import element from '../data/element.js';
 
-describe('W3Schools Iframe Tests', () => {
+describe('Wikipedia Albert Einstein Information Download', () => {
+    it('should display the main page correctly', async () => {
+        await browser.url('/');
+        await expect(browser).toHaveTitleContaining(element.name);
+    });
+    
+    it('should download the PDF for Albert Einstein', async () => {
+        await wikiPage.searchForArticle(element.subjectName);
+        await wikiPage.navigateToDownloadPDF();
+        await wikiPage.downloadPDF();
 
-    it('should verify the "HTML Tutorial" text inside the iframe', 'should click the CSS tutorial button and verify the "CSS Tutorial" text', 'should verify the "HTML Iframe" text outside the iframe', async () => {
-        const htmlTutorial = await iFramePage.getTextHtmlTutorial();
-        const cssTutorial = await iFramePage.clickCssButtonAndCheckText();
-        const htmlIframeText = await iFramePage.getTextOutsideIframe();
-        expect(htmlTutorial).toContain(element.htmlElement);
-        expect(cssTutorial).toContain(element.cssElement);
-        expect(htmlIframeText).toContain(element.iFrameElement);
+        
     });
 });

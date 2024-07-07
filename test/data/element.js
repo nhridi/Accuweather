@@ -1,7 +1,6 @@
 const testElements = {
-    htmlElement: 'HTML Tutorial',
-    cssElement: 'CSS Tutorial',
-    iFrameElement: 'HTML Iframe'
+    name: 'Wikipedia',
+    subjectName: 'Albert Einstein',
 };
 
 export default testElements;
