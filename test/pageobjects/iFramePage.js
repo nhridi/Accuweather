@@ -2,27 +2,7 @@ class IframePage {
 
     get iframe() {
 
-        return $('iframe[title="W3Schools HTML Tutorial"]]'); //backup element: iframe[src="https://www.w3schools.com/html/default.asp"]
-    }
-
-    get htmlTutorialElement() {
-
-        return $('//*[@id="main"]/h1');
-    }
-
-    get cssButton() {
-
-        return $('div[id="subtopnav"] a[title="CSS Tutorial"]');
-    }
-
-    get cssTutorialElement() {
-
-        return $('#main > h1');
-    }
-
-    get htmlIframeElement() {
-
-        return $('//h1[contains(.,"HTML Iframes")]'); // '//h1[contains(.,"HTML Iframes")]'
+        return $('//iframe[@title="W3Schools HTML Tutorial"]');
     }
 
     async switchToIframe() {
@@ -36,21 +16,40 @@ class IframePage {
         await browser.switchToParentFrame();
     }
 
+    get htmlTutorialElement() {
+
+        return $('//h1[contains(.,"HTML Tutorial")]');
+    }
+
+    
     async getTextHtmlTutorial() {
 
         await this.switchToIframe();
         const text = await this.htmlTutorialElement.getText();
-        await this.switchToParent();
         return text;
     }
 
+    get cssButton() {
+
+        return $('div[id="subtopnav"] a[title="CSS Tutorial"]');
+    }
+
+    get cssTutorialElement() {
+
+        return $('//h1[contains(.,"CSS Tutorial")]');
+    }
+    
     async clickCssButtonAndCheckText() {
 
-        await this.switchToIframe();
         await this.cssButton.click();
         const text = await this.cssTutorialElement.getText();
         await this.switchToParent();
         return text;
+    }
+
+    get htmlIframeElement() {
+
+        return $('//h1[contains(.,"HTML Iframes")]');
     }
 
     async getTextOutsideIframe() {
