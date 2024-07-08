@@ -60,6 +60,7 @@ export const config = {
         'goog:chromeOptions': {
 
             args: [ 
+                
                 '--no-sandbox', 
                 '--disable-dev-snm-usage'],
             prefs: {
@@ -211,6 +212,12 @@ export const config = {
         browser.url(config.baseUrl)
         browser.maximizeWindow()
      },
+
+     //Can be used here as its a hook
+
+    //  before: function ("create downloads folder", async () => {
+    //     fs.mkdirSync(global.downloadDir);
+    // });
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name
