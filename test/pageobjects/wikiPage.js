@@ -5,7 +5,7 @@ class WikiPage {
     }
 
     get searchButton() {
-        return $('//*[@id="search-form"]/fieldset/button/i')
+        return $('#search-form > fieldset > button')
     }
 
     async searchForArticle(articleName) {

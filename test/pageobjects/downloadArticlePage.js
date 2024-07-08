@@ -1,11 +1,11 @@
 class DownloadArticlaPage {
     
     get pdfFileName() { 
-        return $('//*[@id="mw-content-text"]/form/div/label/div[2]/div[2]').getText(); 
+        return $('//div[@class="mw-electronpdfservice-selection-label-desc"]').getText(); 
     }
 
     get downloadButton() {
-        return $('//*[@id="mw-content-text"]/form/div/span/span/button/span[2]');
+        return $('//span[@class="oo-ui-labelElement-label"]');
     }
 
     async getDownloadFileName() {

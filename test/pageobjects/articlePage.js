@@ -4,7 +4,7 @@ class ArticlePage {
     }
 
     get downloadPdfLink() {
-        return $('//*[@id="coll-download-as-rl"]/a/span');
+        return $('#coll-download-as-rl');
     }
 
     async navigateToDownloadPDF() {
