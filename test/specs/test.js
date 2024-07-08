@@ -2,11 +2,11 @@ import wikiPage from '../pageobjects/wikiPage.js';
 import articlePage from '../pageobjects/articlePage.js';
 import downloadArticlePage from '../pageobjects/downloadArticlePage.js';
 import element from '../data/element.js';
-import path from 'path';
+import path from 'path'; 
 import fs from 'fs';
 
 describe('Wikipedia Albert Einstein Information Download', () => {
-    it('should display the main page correctly', async () => {
+    it('should display the main page correctly then take input for an article and download it for PDF', async () => {
         await browser.url('/');
         await expect(browser).toHaveTitleContaining(element.name);
         
