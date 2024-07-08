@@ -1,6 +1,6 @@
 import wikiPage from '../pageobjects/wikiPage.js';
 import element from '../data/element.js';
-import { ensureDownloadDirectoryExists } from '../utils/fileUtils.js';
+import { ensureDownloadDirectoryExists, checkFileExists } from '../utils/fileUtils.js';
 import {downloadDir} from '../environment/directories.js';
 import path from 'path';
 
@@ -13,8 +13,10 @@ describe('Wikipedia Albert Einstein Information Download', () => {
         await wikiPage.navigateToDownloadPDF();
         await wikiPage.downloadPDF();
 
+        const dynamicFileName = await wikiPage.getDownloadFileName();
         const fullPath = path.join(downloadDir, 'chrome', dynamicFileName.trim());
-        const isDownloaded = await ensureDownloadDirectoryExists(fullPath, 10000); 
+        await ensureDownloadDirectoryExists();
+        const isDownloaded = await checkFileExists(fullPath, 10000); 
         expect(isDownloaded).toBeTruthy();
 
     });

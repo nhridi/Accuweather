@@ -1,4 +1,5 @@
 import {downloadDir} from './test/environment/directories.js';
+import path from 'path';
 
 export const config = {
     //
@@ -61,8 +62,7 @@ export const config = {
                 '--no-sandbox', 
                 '--disable-dev-snm-usage'],
             prefs: {
-                //'download.default_directory': path.join(__dirname, 'downloads'),
-                'download.default_directory': `${downloadDir}/chrome`,
+                'download.default_directory': path.join(downloadDir, 'chrome'),
                 'download.prompt_for_download': false,
                 'download.directory_upgrade': true,
                 'safebrowsing_for_trusted_sources_enabled': false,
