@@ -1,5 +1,7 @@
-import {downloadDir} from './test/environment/directories.js';
 import path from 'path';
+
+const downloadPath = './downloads';
+global.downloadDir = path.resolve(downloadPath);
 
 export const config = {
     //
@@ -57,16 +59,19 @@ export const config = {
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
 
-            args: [
-                '--incognito', 
+            args: [ 
                 '--no-sandbox', 
                 '--disable-dev-snm-usage'],
             prefs: {
-                'download.default_directory': path.join(downloadDir, 'chrome'),
-                'download.prompt_for_download': false,
-                'download.directory_upgrade': true,
+                download: {
+                'default_directory': downloadDir,
+                'prompt_for_download': false,
+                'directory_upgrade': false,
                 'safebrowsing_for_trusted_sources_enabled': false,
                 'safebrowsing.enabled': false
+            },
+            'profile.default_content_settings.popups': 0,
+            'profile.content_settings.exceptions.automatic_downloads.*.setting': 1
             }
         }
     }],
