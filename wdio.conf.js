@@ -131,7 +131,7 @@ export const config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'cucumber', 
+    framework: ['cucumber', 'mocha' ] 
     
     //
     // The number of times to retry the entire specfile when it fails as a whole
