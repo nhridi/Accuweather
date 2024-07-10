@@ -1,4 +1,5 @@
 import path from 'path';
+import { features } from 'process';
 
 const downloadPath = './downloads';
 global.downloadDir = path.resolve(downloadPath);
@@ -24,6 +25,13 @@ export const config = {
     // The path of the spec files will be resolved relative from the directory of
     // of the config file unless it's absolute.
     //
+    ...{
+    framework: 'cucumber',
+    cucumberOpts: {
+        require: ['./test/features/step-definitions/**/*js'],
+        require: ['./test/features/downloadPdf.feature'],
+    }
+    },
     specs: [
         './test/specs/**/*.js '
     ],
@@ -131,7 +139,7 @@ export const config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: ['cucumber', 'mocha' ] 
+    framework: ['cucumber', 'mocha' ], 
     
     //
     // The number of times to retry the entire specfile when it fails as a whole
@@ -155,7 +163,8 @@ export const config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js'],
+        require: ['./test/features/step-definitions/steps.js'],
+        require: ['./test/features/downloadPdf.feature'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
