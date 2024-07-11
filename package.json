@@ -2,9 +2,8 @@
   "name": "a1qa-wdio-framework",
   "type": "module",
   "scripts": {
-    "chrome.mocha": "wdio run ./configs/chrome.mocha.conf.js",
-    "wdio": "wdio run ./wdio.conf.js",
-    "test:alert": " wdio --spec ./test/specs/test.js"
+    "chrome.cucumber": "wdio run ./configs/chrome.cucumber.conf.js",
+    "wdio": "wdio run ./wdio.conf.js"
   },
   "dependencies": {
     "@babel/core": "^7.24.3",

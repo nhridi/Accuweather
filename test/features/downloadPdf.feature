@@ -1,11 +1,13 @@
-Feature: Wikipedia article PDF download
+Feature: Download articles as PDF from Wikipedia
 
-  Background:
-    Given I am on the Wikipedia main page
+  Scenario Outline: Download the PDF of an article from Wikipedia
+    Given I open the main page of Wikipedia
+    When I input "<article>" in the search field and click the submit button to go to the article page
+    And I click the Tools menu button and select the "Download as PDF" option and it opens a new page for download
+    And I navigate to the download page
+    And I click the Download button to download the file
+    Then I should see "<file>" in the downloads folder
 
-  Scenario: Download PDF of an article
-    When I search for "Albert Einstein"
-    And I navigate to the "Albert Einstein" article
-    And I click the "Tool" option to navigate to DownloadPDF
-    And I click on the "Download as PDF" link
-    Then the PDF download of the article should start
+    Examples:
+     article         | file               
+     Albert Einstein | Albert_Einstein.pdf
