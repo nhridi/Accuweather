@@ -11,7 +11,7 @@ import { assert } from 'chai';
 
 Given('I open the main page of Wikipedia', async ()=> {
     await Browser.openUrl('https://www.wikipedia.org/');
-    const isMainPageVisible = await wikiPage.mainPageIsDisplayed(wikiPage.wikipedia);
+    const isMainPageVisible = await wikiPage.mainPageIsDisplayed();
     assert.isTrue(isMainPageVisible, 'Wikipedia main page is not displayed');
 });
 
@@ -19,7 +19,7 @@ When('I input "{string}" in the search field and click the submit button to go t
     await wikiPage.searchForArticle(article);
 });
 
-When('I click the Tools menu button and select the "Download as PDF" option and it opens a new page for download', async () => {
+When('I click the Tools menu button and select the Download as PDF option and it opens a new page for download', async () => {
     await articlePage.downloadArticleAsPDF();
 });
 
