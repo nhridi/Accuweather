@@ -3,8 +3,6 @@ import wikiPage from '../pageobjects/wikiPage.js';
 import articlePage from '../pageobjects/articlePage.js';
 import downloadArticlePage from '../pageobjects/downloadArticlePage.js';
 import Browser from "../../framework/browser/Browser.js";
-import BasePage from '../../framework/page/BasePage.js';
-import element from '../data/element.js';
 import path from 'path'; 
 import fs from 'fs';
 import { assert } from 'chai';
@@ -19,17 +17,17 @@ When('I input "{string}" in the search field and click the submit button to go t
     await wikiPage.searchForArticle(article);
 });
 
-When('I click the Tools menu button and select the Download as PDF option and it opens a new page for download', async () => {
+And('I click the Tools menu button and select the Download as PDF option and it opens a new page for download', async () => {
     await articlePage.downloadArticleAsPDF();
 });
 
-When('I navigate to the download page', async () => {
+And('I navigate to the download page', async () => {
 
     const isDownloadPageReady = await downloadArticlePage.isDownloadPageDisplayed();
     assert.isTrue(isDownloadPageReady, 'Download page is not ready');
 });
 
-When('I click the Download button to download the file', async () => {
+And('I click the Download button to download the file', async () => {
     await downloadArticlePage.downloadPDF();
 });
 
@@ -38,7 +36,3 @@ Then('I should see "{string}" in the downloads folder', async (file) => {
     const fileExists = await fs.pathExists(downloadFilePath);
     assert.isTrue(fileExists, `File ${file} does not exist in the downloads folder`);
 });
-
-
-
-

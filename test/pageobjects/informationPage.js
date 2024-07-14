@@ -13,4 +13,3 @@ class InformationPage extends BasePage {
         await this.infoPage(informationText).isPageOpened();
     }
 }
-

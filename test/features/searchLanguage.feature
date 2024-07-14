@@ -9,3 +9,4 @@ Scenario: Search for an article in a specific language on Wikipedia
     Examples:
      article                | language              
      Gabriel García Márquez | Español
+     

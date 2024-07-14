@@ -15,7 +15,7 @@ When('I input "{string}" in the search field and click the submit button to go t
     await wikiPage.searchForArticle(article);
 });
 
-When('I click the Tools menu button and select the "Page Information" option and it opens a new page showing Page Information', async () => {
+And('I click the Tools menu button and select the "Page Information" option and it opens a new page showing Page Information', async () => {
     await articlePage.navigateToPageInformation();
 });
 
