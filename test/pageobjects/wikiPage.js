@@ -1,6 +1,7 @@
 import BasePage from '../../framework/page/BasePage.js';
 import { Label, Button, Input } from '../../framework/elements/index.js';
 import { PreciseTextLocator } from "../../framework/utils/locatorHelper.js";
+//import { ElementStateProvider } from "../../framework/elements/helper/StateProvider.js"
 
 class WikiPage extends BasePage {
     constructor() {
@@ -15,17 +16,22 @@ class WikiPage extends BasePage {
 
     }
 
-    async mainPageIsDisplayed() {
-        return this.wikipediaPage.isPageOpened();
-    }
+    // async mainPageIsDisplayed() {
+    //     return this.wikipediaPage.isExisting();
+    // }
 
     async selectLanguageOption(selectLanguage) {
         await this.languageOption.selectOptionByText(selectLanguage);
     }
+
     async searchForArticle(articleName) {
-        await this.searchInput.typeTextWithClear(articleName);
-        await this.searchButton.click();
+        await this.searchInput.typeTextWithClear(articleName); 
+        await this.searchButton.click(); 
     }
+
+    // async clickSearchButton() {
+    //     await this.searchButton.click();
+    // }
 
 }
 
