@@ -10,6 +10,7 @@ export const mainConfig = {
     maxInstances: 1,
     logLevel: 'warn',
     bail: 0,
+    baseUrl: 'https://www.wikipedia.org/',
     waitforTimeout: 0,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,

@@ -1,6 +1,6 @@
 import BasePage from "../../framework/page/BasePage.js";
 import { Button, Label } from "../../framework/elements/index.js";
-import { PartialTextLocator } from "../framework/utils/locatorHelper.js";
+import { PartialTextLocator } from "../../framework/utils/locatorHelper.js";
 
 class ArticlePage extends BasePage{
 
