@@ -21,17 +21,19 @@ class WikiPage extends BasePage {
     // }
 
     async selectLanguageOption(selectLanguage) {
+        await this.languageOption.click();
+        await this.languageOption.scrollIntoView();
         await this.languageOption.selectOptionByText(selectLanguage);
+
     }
 
     async searchForArticle(articleName) {
         await this.searchInput.typeTextWithClear(articleName); 
-        await this.searchButton.click(); 
     }
 
-    // async clickSearchButton() {
-    //     await this.searchButton.click();
-    // }
+    async clickSearchButton() {
+        await this.searchButton.click();
+    }
 
 }
 

@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id=\"vector-page-tools-dropdown\"]\"}\n  (Session info: chrome=126.0.6478.127)",
+  "stacktrace": "\tGetHandleVerifier [0x00007FF61D38EEC2+31554]\n\t(No symbol) [0x00007FF61D307EF9]\n\t(No symbol) [0x00007FF61D1C872A]\n\t(No symbol) [0x00007FF61D218434]\n\t(No symbol) [0x00007FF61D21853C]\n\t(No symbol) [0x00007FF61D25F6A7]\n\t(No symbol) [0x00007FF61D23D06F]\n\t(No symbol) [0x00007FF61D25C977]\n\t(No symbol) [0x00007FF61D23CDD3]\n\t(No symbol) [0x00007FF61D20A33B]\n\t(No symbol) [0x00007FF61D20AED1]\n\tGetHandleVerifier [0x00007FF61D698B5D+3217373]\n\tGetHandleVerifier [0x00007FF61D6E5B23+3532707]\n\tGetHandleVerifier [0x00007FF61D6DB120+3489184]\n\tGetHandleVerifier [0x00007FF61D43E796+750614]\n\t(No symbol) [0x00007FF61D31377F]\n\t(No symbol) [0x00007FF61D30EB34]\n\t(No symbol) [0x00007FF61D30ECC2]\n\t(No symbol) [0x00007FF61D2FE18F]\n\tBaseThreadInitThunk [0x00007FFF66C2257D+29]\n\tRtlUserThreadStart [0x00007FFF67D6AA48+40]\n"
+}

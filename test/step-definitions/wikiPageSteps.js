@@ -11,6 +11,7 @@ Given(/^I open the main page of Wikipedia$/, async () => {
 
 When(/^I input "(.+)" in the search field and click the submit button to go to the article page$/, async (article) => {
     await wikiPage.searchForArticle(article);
+    await wikiPage.clickSearchButton();
 });
 
 When(/^I change the search language to "(.+)"$/, async (language) => {
@@ -19,5 +20,6 @@ When(/^I change the search language to "(.+)"$/, async (language) => {
 
 When(/^I input "(.+)" in the search field, and click the submit button$/, async (article, language) => {
     await wikiPage.searchForArticle(article); 
-    // await wikiPage.clickSearchButton();
+    await wikiPage.selectLanguageOption(language);
+    await wikiPage.clickSearchButton();
 });

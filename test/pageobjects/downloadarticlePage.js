@@ -12,10 +12,6 @@ class DownloadArticlaPage extends BasePage{
         this.downloadButton = new Button('//span[@class="oo-ui-labelElement-label"]');
     }
 
-    // async isDownloadPageDisplayed() {
-    //     return this.downloadPage.isPageOpened();
-    // }
-    
     async getFileName() {
         return await this.pdfFileName.getText();
     }

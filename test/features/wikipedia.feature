@@ -14,7 +14,7 @@ Feature: Wikipedia Article Management
       | Albert Einstein | Albert_Einstein.pdf|
 
   Scenario: Access the page information for a Wikipedia article
-    When I input "<article>" in the search field and click the submit button
+    When  I input "<article>" in the search field and click the submit button to go to the article page
     And I click the Tools menu button and select the Page information option
     Then the information page for "<article>" is displayed
 
@@ -23,8 +23,8 @@ Feature: Wikipedia Article Management
       | Bengal tiger |
 
   Scenario: Search for an article in a specific language on Wikipedia
-    When I  Change the search language to "<language>" 
-    And I input "<article>" in the search field, and click the submit button
+     When I input "<article>" in the search field and click the submit button to go to the article page
+     When I  Change the search language to "<language>"
     Then the article page for "<article>" in "<language>" is displayed
 
     Examples:
