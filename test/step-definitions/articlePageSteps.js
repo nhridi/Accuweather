@@ -13,5 +13,5 @@ When(/^I click the Tools menu button and select the Page information option$/, a
 });
 
 Then(/^The article page is displayed$/, async () => {
-    assert.isTrue(articlePage.isPageOpened(), `Article page is not displayed`);
+    assert.isTrue(await articlePage.isPageOpened(), `Article page is not displayed`);
 });
