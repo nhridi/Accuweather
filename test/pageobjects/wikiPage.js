@@ -1,13 +1,10 @@
 import BasePage from '../../framework/page/BasePage.js';
-import { Label, Button, Input } from '../../framework/elements/index.js';
-import { PreciseTextLocator } from "../../framework/utils/locatorHelper.js";
-//import { ElementStateProvider } from "../../framework/elements/helper/StateProvider.js"
-
+import { Label, Button, Input, Dropdown } from '../../framework/elements/index.js';
 class WikiPage extends BasePage {
     constructor() {
         
         super(new Label('//div[contains(@class,"central-textlogo")]', 'Main Page'));
-        this.languageOption = new Button('//*[@id="search-input"]//*[@id="searchLanguage"]', 'Language Dropdown');
+        this.languageOption = new Dropdown('//*[@id="search-input"]//*[@id="searchLanguage"]', 'Language Dropdown');
         this.searchInput = new Input('//*[@id="searchInput"]', 'Search Article by Name');
         this.searchButton = new Button('#search-form > fieldset > button', 'Click Search Button');
 
@@ -15,8 +12,6 @@ class WikiPage extends BasePage {
 
 
     async selectLanguageOption(selectLanguage) {
-        //await this.languageOption.click();
-        //await this.languageOption.scrollIntoView();
         await this.languageOption.selectOptionByText(selectLanguage);
 
     }

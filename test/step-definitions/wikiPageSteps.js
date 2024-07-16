@@ -13,15 +13,10 @@ When(/^I input "(.+)" in the search field$/, async (article) => {
     await wikiPage.searchForArticle(article);
 });
 
-When(/^I click the submit button to go to the article page$/, async () => {
-    await wikiPage.clickSearchButton();
-});
-
 When(/^I change the search language to "(.+)"$/, async (language) => {
     await wikiPage.selectLanguageOption(language);
 });
 
-When(/^I input "(.+)" in the search field, and click the submit button$/, async (article, language) => {
-    await wikiPage.searchForArticle(article); 
+When(/^I click the submit button to go to the article page$/, async () => {
     await wikiPage.clickSearchButton();
 });

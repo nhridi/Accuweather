@@ -11,24 +11,24 @@ Feature: Wikipedia Article Management
     Then I should see "<file>" in the downloads folder
 
     Examples:
-      | article         | file               |
-      | Albert Einstein | Albert_Einstein.pdf|
+      | article         | file                |
+      | Albert Einstein | Albert_Einstein.pdf |
 
   Scenario Outline: Access the page information for a Wikipedia article
     When I input "<article>" in the search field 
     And I click the submit button to go to the article page
     And I click the Tools menu button and select the Page information option
-    Then the information page for "<article>" is displayed
+    Then The information page is displayed
 
     Examples:
       | article      |
       | Bengal tiger |
 
   Scenario Outline: Search for an article in a specific language on Wikipedia
-     When I  Change the search language to "<language>" 
-     When I input "<article>" in the search field and click the submit button to go to the article page
-     
-     Then the article page for "<article>" in "<language>" is displayed
+    When I input "<article>" in the search field
+    And I change the search language to "<language>" 
+    And I click the submit button to go to the article page
+    Then The article page is displayed
 
     Examples:
       | article                | language |
