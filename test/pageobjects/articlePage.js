@@ -4,7 +4,7 @@ import { Button, Label } from "../../framework/elements/index.js";
 class ArticlePage extends BasePage{
 
     constructor() {
-        super(new Label('//*[@id="vector-toc"]', 'Article Page'));
+        super(new Label('//*[@id="firstHeading"]', 'Article Page'));
 
         this.toolsDropdown = new Button('//*[@id="vector-page-tools-dropdown"]', "Click Tools Dropdown Menu")
         this.downloadPdfOption = new Button('//*[@id="coll-download-as-rl"]');

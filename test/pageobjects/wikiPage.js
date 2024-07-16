@@ -10,7 +10,6 @@ class WikiPage extends BasePage {
 
     }
 
-
     async selectLanguageOption(selectLanguage) {
         await this.languageOption.selectOptionByText(selectLanguage);
 
@@ -21,6 +20,7 @@ class WikiPage extends BasePage {
     }
 
     async clickSearchButton() {
+        await this.searchButton.state().waitForDisplayed();
         await this.searchButton.click();
     }
 
