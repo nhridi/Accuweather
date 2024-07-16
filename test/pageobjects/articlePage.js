@@ -25,10 +25,6 @@ class ArticlePage extends BasePage{
     async navigateToPageInformation() {
         await this.pageInformationOption.click();
     }
-
-    async isArticlePageIsDisplayed(articleText) {
-        await this.infoPage(articleText).isPageOpened();
-    }
     
 }
 

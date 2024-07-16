@@ -5,12 +5,15 @@ import { assert } from 'chai';
 
 Given(/^I open the main page of Wikipedia$/, async () => {
     await Browser.openUrl('/');
-    // const isMainPageVisible = await wikiPage.mainPageIsDisplayed();
-    // assert.isTrue(isMainPageVisible, 'Wikipedia main page is not displayed');
+
+    assert.isTrue(await wikiPage.isPageOpened(), 'Wikipedia main page is not displayed');
 });
 
-When(/^I input "(.+)" in the search field and click the submit button to go to the article page$/, async (article) => {
+When(/^I input "(.+)" in the search field$/, async (article) => {
     await wikiPage.searchForArticle(article);
+});
+
+When(/^I click the submit button to go to the article page$/, async () => {
     await wikiPage.clickSearchButton();
 });
 
@@ -20,6 +23,5 @@ When(/^I change the search language to "(.+)"$/, async (language) => {
 
 When(/^I input "(.+)" in the search field, and click the submit button$/, async (article, language) => {
     await wikiPage.searchForArticle(article); 
-    await wikiPage.selectLanguageOption(language);
     await wikiPage.clickSearchButton();
 });

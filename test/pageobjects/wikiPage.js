@@ -6,23 +6,17 @@ import { PreciseTextLocator } from "../../framework/utils/locatorHelper.js";
 class WikiPage extends BasePage {
     constructor() {
         
-        super(new Label(PreciseTextLocator('The Free Encyclopedia'), 'Main Page'));
-
-        this.wikipediaPage = (text) => (new Label(PreciseTextLocator), `Main Page: ${text}`);
-
-        this.languageOption = new Button('//*[@id="searchLanguage"]', 'Language Dropdown');
+        super(new Label('//div[contains(@class,"central-textlogo")]', 'Main Page'));
+        this.languageOption = new Button('//*[@id="search-input"]//*[@id="searchLanguage"]', 'Language Dropdown');
         this.searchInput = new Input('//*[@id="searchInput"]', 'Search Article by Name');
         this.searchButton = new Button('#search-form > fieldset > button', 'Click Search Button');
 
     }
 
-    // async mainPageIsDisplayed() {
-    //     return this.wikipediaPage.isExisting();
-    // }
 
     async selectLanguageOption(selectLanguage) {
-        await this.languageOption.click();
-        await this.languageOption.scrollIntoView();
+        //await this.languageOption.click();
+        //await this.languageOption.scrollIntoView();
         await this.languageOption.selectOptionByText(selectLanguage);
 
     }

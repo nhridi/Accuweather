@@ -30,7 +30,7 @@ export class Dropdown extends BaseElement {
     async selectOptionByText(text) {
         Logger.info(`${this.log()}Select option with text "${text}" from element`);
         await this.state().waitForExist();
-        await this.state().waitForDisplayed();
+        //await this.state().waitForDisplayed();
 
         const element = await this._get$();
         return element.selectByVisibleText(text);
