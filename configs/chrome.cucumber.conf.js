@@ -1,12 +1,12 @@
 import { downloadDir, mainConfig } from "../framework/configs/main.wdio.conf.js";
 
-
 export const config = {
     ...mainConfig,
     ...{
         framework: 'cucumber',
         cucumberOpts: {
-            require: ['./test/step-definitions/**/*.js'],
+            require: ['./test/step-definitions/**/*.js', 
+                './test/hooks/**/*js'],
         },
         specs: [
             '../test/features/**/*.feature'

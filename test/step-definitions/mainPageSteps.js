@@ -12,17 +12,28 @@ When(/^I consent data Usage$/, async () => {
 
 When(/^I input "(.+)" in the search field$/, async (city) => {
     await mainPage.searchCity(city);
-    assert.isTrue(mainPage.resultListDisplayed());
 });
+
+Then(/^I see a list of city$/, async() =>{
+    assert.isTrue(mainPage.resultListDisplayed());
+})
 
 When(/^I click on the first search result$/, async () => {
     await mainPage.clickFirstResult();
+});
+
+Then(/I see that main page is displayed^$/, async () => {
+    assert.isTrue(await mainPage.isPageOpened(), 'AccuWeather main page is not displayed');
 });
 
 When(/^I choose the first city in Recent locations.$/, async () => {
     await mainPage.clickFirstCityRecentLocations();
 });
 
-Then(/^I click search field to show current location label$/, async () => {
+When(/^I click search field$/, async () => {
+    await mainPage.clickSearchField();
+})
+
+Then(/^I see the current location label$/, async () => {
     assert.isTrue(await mainPage.isLocationLabelDisplayed());
 });
