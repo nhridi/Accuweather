@@ -5,12 +5,11 @@ export const downloadDir = path.resolve('./tmp');
 
 export const mainConfig = {
     runner: 'local',
-    exclude: [
-    ],
+    exclude: [],
     maxInstances: 1,
     logLevel: 'warn',
     bail: 0,
-    baseUrl: 'https://www.wikipedia.org/',
+    baseUrl: 'https://www.accuweather.com/',  // Make sure this is correctly set
     waitforTimeout: 0,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
@@ -20,19 +19,15 @@ export const mainConfig = {
         ui: 'bdd',
         timeout: 60000
     },
-
     onPrepare: function() {
         fs.ensureDir(downloadDir);
     },
-
     after: function (result, capabilities, specs) {
         fs.emptyDir(downloadDir);
     },
-
     afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         if (!passed) {
             await browser.takeScreenshot();
         }
     },
-
 }
