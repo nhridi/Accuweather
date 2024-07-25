@@ -3,12 +3,20 @@ import { mainConfig as mainConfig } from "../../framework/configs/main.wdio.conf
 
 export default class Hooks {
     static async beforeTest() {
-        console.log('Opening browser with base URL:', mainConfig.baseUrl);
-        await Browser.openUrl(mainConfig.baseUrl);
+        try {
+            console.log('Opening browser with base URL:', mainConfig.baseUrl);
+            await Browser.openUrl(mainConfig.baseUrl);
+        } catch (error) {
+            console.error('Failed to open browser:', error);
+        }
     }
 
     static async afterTest() {
-        console.log('Closing browser');
-        await Browser.Window.closeCurrentWindow();
+        try {
+            console.log('Closing browser');
+            await Browser.Window.closeCurrentWindow();
+        } catch (error) {
+            console.error('Failed to close browser:', error);
+        }
     }
 }
