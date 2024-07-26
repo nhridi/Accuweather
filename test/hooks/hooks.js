@@ -8,6 +8,6 @@ Before(async () => {
     await Browser.Window.resize(defaultWindowSize);
 });
 
-// After(async () => {
-//     await Browser.Window.closeCurrentWindow();
-// });
+After(async () => {
+    await Browser.Window.closeCurrentWindow();
+});

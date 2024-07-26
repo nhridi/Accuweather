@@ -1,4 +1,4 @@
 export const defaultWindowSize = {
-    width: 1200,
+    width: 1400,
     height: 800
 };
