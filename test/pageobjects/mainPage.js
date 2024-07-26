@@ -28,11 +28,11 @@ class MainPage extends BasePage {
     }
     
     async resultListDisplayed() {
-        await this.resultList.state().waitForDisplayed();
+        return await this.resultList.state().waitForDisplayed();
     }
 
     async clickFirstResult() {
-        //await this.firstSearchResult.state().waitForDisplayed();
+        await this.firstSearchResult.state().waitForDisplayed();
         await this.firstSearchResult.click();
     }
 
@@ -41,7 +41,7 @@ class MainPage extends BasePage {
     }
 
     async isLocationLabelDisplayed() {
-        await this.currentLocation.state().waitForDisplayed();
+        return await this.currentLocation.state().waitForDisplayed();
     }
 }
 
