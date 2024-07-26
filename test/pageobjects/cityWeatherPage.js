@@ -10,7 +10,7 @@ class cityWeatherPage extends BasePage {
     }
 
     async displayCityName() {
-        return await this.cityName.state().isDisplayed();
+        return await this.cityName.state().waitForDisplayed();
         //return await this.cityName.getText();
     }
 
