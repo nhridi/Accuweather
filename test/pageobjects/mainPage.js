@@ -7,9 +7,9 @@ class MainPage extends BasePage {
         super(new Label('//div[@class="featured-locations"]'));
 
         this.consentButton = new Button('//div[contains(@class, "policy-accept")]', 'Consent data usage');
-        this.searchResultPlaceholder = new Input('//div[contains(@class, "searchbar-content")]', 'Select search placeholder to write');
+        this.searchResultPlaceholder = new Input('//input[@placeholder="Search your Address, City or Zip Code"]', 'Select search placeholder to write');
         this.resultList = new Dropdown('//div[@class="results-container"]', 'Search results list');
-        this.firstSearchResult = new Dropdown('div.results-container > div.search-bar-result:first-of-type', 'Select the first result from the dropdown');
+        this.firstSearchResult = new Label('div.results-container > div.search-bar-result:first-of-type', 'Select the first result from the dropdown');
         this.firstCity = new Label('div.featured-locations a:first-of-type', 'Select the featured location');
         this.currentLocation = new Label('//div[@class="search-bar-result current-location-result"]')
     }
@@ -19,13 +19,12 @@ class MainPage extends BasePage {
         await this.consentButton.click();
     }
 
-    async searchCity(cityName) {
-        await this.searchResultPlaceholder.click();
-        await this.searchResultPlaceholder.typeTextWithClear(cityName);
-    }
-
     async clickSearchField() {
         await this.searchResultPlaceholder.click();
+    }
+
+    async searchCity(city) {
+        await this.searchResultPlaceholder.typeTextWithClear(city);
     }
     
     async resultListDisplayed() {
@@ -33,7 +32,7 @@ class MainPage extends BasePage {
     }
 
     async clickFirstResult() {
-        await this.firstSearchResult.state().isExisting;
+        //await this.firstSearchResult.state().isExisting;
         await this.firstSearchResult.click();
     }
 

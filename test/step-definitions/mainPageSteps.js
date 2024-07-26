@@ -10,6 +10,10 @@ When(/^I consent data Usage$/, async () => {
     await mainPage.acceptConsentButton();
 });
 
+When(/^I click search field$/, async () => {
+    await mainPage.clickSearchField();
+})
+
 When(/^I input "(.+)" in the search field$/, async (city) => {
     await mainPage.searchCity(city);
 });
@@ -29,10 +33,6 @@ When(/^I click on the first search result$/, async () => {
 When(/^I choose the first city in Recent locations.$/, async () => {
     await mainPage.clickFirstCityRecentLocations();
 });
-
-When(/^I click search field$/, async () => {
-    await mainPage.clickSearchField();
-})
 
 Then(/^I see the current location label$/, async () => {
     assert.isTrue(await mainPage.isLocationLabelDisplayed());
