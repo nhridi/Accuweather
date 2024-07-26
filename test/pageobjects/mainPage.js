@@ -1,5 +1,5 @@
 import BasePage from "../../framework/page/BasePage.js";
-import { Label, Button, Input, Dropdown } from "../../framework/elements/index.js";
+import { Label, Button, Input, Dropdown, Checkbox, Table } from "../../framework/elements/index.js";
 
 class MainPage extends BasePage {
 
@@ -8,7 +8,7 @@ class MainPage extends BasePage {
 
         this.consentButton = new Button('//div[contains(@class, "policy-accept")]', 'Consent data usage');
         this.searchResultPlaceholder = new Input('//input[@placeholder="Search your Address, City or Zip Code"]', 'Select search placeholder to write');
-        this.resultList = new Dropdown('//div[@class="results-container"]', 'Search results list');
+        this.resultList = new Label('//div[@class="search-results"]//div[@class="results-container"]', 'Search results list');
         this.firstSearchResult = new Label('div.results-container > div.search-bar-result:first-of-type', 'Select the first result from the dropdown');
         this.firstCity = new Label('div.featured-locations a:first-of-type', 'Select the featured location');
         this.currentLocation = new Label('//div[@class="search-bar-result current-location-result"]')
@@ -28,11 +28,11 @@ class MainPage extends BasePage {
     }
     
     async resultListDisplayed() {
-        await this.resultList.state.isDisplayed();
+        await this.resultList.state().isDisplayed;
     }
 
     async clickFirstResult() {
-        //await this.firstSearchResult.state().isExisting;
+        this.firstSearchResult.state().isClickable;
         await this.firstSearchResult.click();
     }
 

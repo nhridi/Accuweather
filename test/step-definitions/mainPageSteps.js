@@ -19,7 +19,7 @@ When(/^I input "(.+)" in the search field$/, async (city) => {
 });
 
 Then(/^I see a list of city$/, async() =>{
-    assert.isTrue(mainPage.resultListDisplayed());
+    assert.isTrue(mainPage.resultListDisplayed(), 'List of City is not displayed');
 })
 
 When(/^I click on the first search result$/, async () => {
@@ -35,5 +35,5 @@ When(/^I choose the first city in Recent locations.$/, async () => {
 });
 
 Then(/^I see the current location label$/, async () => {
-    assert.isTrue(await mainPage.isLocationLabelDisplayed());
+    assert.isTrue(await mainPage.isLocationLabelDisplayed(), 'Location Label is not displayed');
 });
