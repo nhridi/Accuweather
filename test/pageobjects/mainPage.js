@@ -4,7 +4,7 @@ import { Label, Button, Input, Dropdown, Checkbox, Table, ElementsList } from ".
 class MainPage extends BasePage {
 
     constructor() {
-        super(new Label('//div[@class="featured-locations"]'));
+        super(new Label('//div[@class="featured-locations"]'), 'Main Page');
 
         this.consentButton = new Button('//div[contains(@class, "policy-accept")]', 'Consent data usage');
         this.searchResultPlaceholder = new Input('//input[@placeholder="Search your Address, City or Zip Code"]', 'Select search placeholder to write');
@@ -32,7 +32,6 @@ class MainPage extends BasePage {
     }
 
     async clickFirstResult() {
-        await this.firstSearchResult.state().waitForDisplayed();
         await this.firstSearchResult.click();
     }
 

@@ -2,6 +2,10 @@ import { When, Then } from "@wdio/cucumber-framework";
 import cityWeatherPage from "../pageobjects/cityWeatherPage.js";
 import { assert } from 'chai';
 
+When(/^I go to the city weather page$/, async () => {
+    await cityWeatherPage.isPageOpened();
+})
+
 When(/^I go back to the main page$/, async () => {
     await cityWeatherPage.navigateBackToMainPage();
 });
