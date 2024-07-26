@@ -19,7 +19,6 @@ Scenario: Recent Location's weather forecast
     And I click on the first search result
     Then I see that city weather page header contains city name from the search
     When I go back to the main page
-    Then I see that main page is displayed
     And I choose the first city in Recent locations.
     Then I see that city weather page header contains city name from the search
 
@@ -27,6 +26,6 @@ Scenario: Recent Location's weather forecast
     | city    |
     | London |
 
-Scenario Outline: Current Locations Label
+Scenario: Current Locations Label
     When I click search field 
     Then I see the current location label

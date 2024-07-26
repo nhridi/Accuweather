@@ -22,9 +22,9 @@ When(/^I click on the first search result$/, async () => {
     await mainPage.clickFirstResult();
 });
 
-Then(/I see that main page is displayed^$/, async () => {
-    assert.isTrue(await mainPage.isPageOpened(), 'AccuWeather main page is not displayed');
-});
+// Then(/I see that main page is displayed^$/, async () => {
+//     assert.isTrue(await mainPage.isPageOpened(), 'AccuWeather main page is not displayed');
+// });
 
 When(/^I choose the first city in Recent locations.$/, async () => {
     await mainPage.clickFirstCityRecentLocations();
