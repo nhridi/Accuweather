@@ -9,7 +9,7 @@ class cityWeatherPage extends BasePage {
         this.cityName = new Label('//h1[@class="header-loc"]', 'city name');
     }
 
-    async displayCityName() {
+    async isCityNameDisplayed() {
         return await this.cityName.state().waitForDisplayed();
     }
 

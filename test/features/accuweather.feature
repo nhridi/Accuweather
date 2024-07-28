@@ -10,7 +10,7 @@ Scenario:  Search for a specific city for weather forecast
     And I input "<city>" in the search field
     Then I see a list of city
     When I click on the first search result
-    And I go to the city weather page
+    And I am on specific weather page
     Then I see that city weather page header contains city name from the search
 
     Examples:
@@ -21,7 +21,7 @@ Scenario: Recent Location's weather forecast
     When I click search field
     And I input "<city>" in the search field
     And I click on the first search result
-    And I go to the city weather page
+    And I am on specific weather page
     When I go back to the main page
     And I choose the first city in Recent locations.
     Then I see that city weather page header contains city name from the search

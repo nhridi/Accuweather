@@ -1,5 +1,5 @@
 import BasePage from "../../framework/page/BasePage.js";
-import { Label, Button, Input, Dropdown, Checkbox, Table, ElementsList } from "../../framework/elements/index.js";
+import { Label, Button, Input } from "../../framework/elements/index.js";
 
 class MainPage extends BasePage {
 
@@ -27,7 +27,7 @@ class MainPage extends BasePage {
         await this.searchResultPlaceholder.typeTextWithClear(city);
     }
     
-    async resultListDisplayed() {
+    async isResultListDisplayed() {
         return await this.resultList.state().waitForDisplayed();
     }
 
